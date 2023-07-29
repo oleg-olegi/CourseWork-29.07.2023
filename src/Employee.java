@@ -1,9 +1,11 @@
+import java.util.Objects;
+
 public class Employee {
     private String name;
     private int department;
     private int salary;
     private int id;
-    static int count = 1;
+    private static int count = 1;
 
     public Employee(String name, int department, int salary) {
         this.name = name;
@@ -35,6 +37,11 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, department, salary, id);
     }
 
     @Override
