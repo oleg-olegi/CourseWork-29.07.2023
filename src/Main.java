@@ -87,19 +87,31 @@ public class Main {
         }
         return employees.get(index);
     }
-//нати сотрудника с max ЗП по номеру отдела
-public static Employee findMaxSalaryByDepartment(ArrayList<Employee> employees, int numberOfDepartment) {
-    Employee employee = null;
-    int max = -1;
-    for (Employee o : employees) {
-        if (o.getDepartment() == numberOfDepartment && o.getSalary() >  max) {
-            max = o.getSalary();
-            employee = o;
-        }
-    }
-    return employee;
-}
 
+    //нати сотрудника с max ЗП по номеру отдела
+    public static Employee findMaxSalaryByDepartment(ArrayList<Employee> employees, int numberOfDepartment) {
+        Employee employee = null;
+        int max = -1;
+        for (Employee o : employees) {
+            if (o.getDepartment() == numberOfDepartment && o.getSalary() > max) {
+                max = o.getSalary();
+                employee = o;
+            }
+        }
+        return employee;
+    }
+
+    //сумма затрат на ЗП по отделу
+    public static int getTotalSalaryCostByDepartment(ArrayList<Employee> employees, int department) {
+        int totalCost = 0;
+        for (Employee o :
+                employees) {
+            if (o.getDepartment() == department) {
+                totalCost += o.getSalary();
+            }
+        }
+        return totalCost;
+    }
 
     public static void main(String[] args) {
 
@@ -110,7 +122,8 @@ public static Employee findMaxSalaryByDepartment(ArrayList<Employee> employees, 
         Employee kuznetsov = new Employee("Кузнецов Илларион Феофилович", 4, 1500);
         Employee kovalev = new Employee("Ковалев Владимир Красносолнышко", 5, 1_000_000);
         System.out.println(findMinSalaryByDepartment(Employee.getEmployees(), 1));
-        System.out.println(findMaxSalaryByDepartment(Employee.getEmployees(),1));
+        System.out.println(findMaxSalaryByDepartment(Employee.getEmployees(), 1));
+        System.out.println(getTotalSalaryCostByDepartment(Employee.getEmployees(), 1));
       /*  printEmpl(Employee.getEmployees());
         System.out.println("Сумма затрат на зарплату в месяц - " + sumSalary(Employee.getEmployees()) + '\u20AC' + "\n");
         System.out.println("Наименьшая ЗП у сотрудника - \n" + minSalary(Employee.getEmployees()) + "\n");
