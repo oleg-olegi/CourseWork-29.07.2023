@@ -53,7 +53,7 @@ public class Main {
         return sum / count;
     }
 
-    public static void printName(ArrayList<Employee> obj) {
+    public static void printNameOfemployees(ArrayList<Employee> obj) {
         for (Employee o : obj
         ) {
             System.out.println("ФИО сотрудника = " + o.getName());
@@ -61,7 +61,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        ArrayList<Employee> employees = new ArrayList<>();
 
         Employee ivanov = new Employee("Иванов Иван Иванович", 1, 1900);
         Employee petrov = new Employee("Петров Петр Петрович", 2, 1200);
@@ -69,17 +68,11 @@ public class Main {
         Employee kuznetsov = new Employee("Кузнецов Илларион Феофилович", 4, 1500);
         Employee kovalev = new Employee("Ковалев Владимир Красносолнышко", 5, 1_000_000);
 
-        employees.add(ivanov);
-        employees.add(petrov);
-        employees.add(sidorov);
-        employees.add(kuznetsov);
-        employees.add(kovalev);
-
-        printEmpl(employees);
-        System.out.println("Сумма затрат на зарплату в месяц - " + sumSalary(employees) + '\u20AC' + "\n");
-        System.out.println("Наименьшая ЗП у сотрудника - \n" + minSalary(employees) + "\n");
-        System.out.println("Наибольшая ЗП у сотрудника - \n" + maxSalary(employees) + "\n");
-        System.out.println("Среднее значение зарплат = " + averageSalary(employees) + "\n");
-        printName(employees);
+        printEmpl(Employee.getEmployees());
+        System.out.println("Сумма затрат на зарплату в месяц - " + sumSalary(Employee.getEmployees()) + '\u20AC' + "\n");
+        System.out.println("Наименьшая ЗП у сотрудника - \n" + minSalary(Employee.getEmployees()) + "\n");
+        System.out.println("Наибольшая ЗП у сотрудника - \n" + maxSalary(Employee.getEmployees()) + "\n");
+        System.out.println("Среднее значение зарплат = " + averageSalary(Employee.getEmployees()) + "\n");
+        printNameOfemployees(Employee.getEmployees());
     }
 }
