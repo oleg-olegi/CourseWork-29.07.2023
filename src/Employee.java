@@ -6,7 +6,7 @@ public class Employee {
     private int department;
     private int salary;
     private int id;
-    private static ArrayList<Employee> employees = new ArrayList<>();//возможно
+    private static ArrayList<Employee> employees = new ArrayList<>();
     private static int count = 1;
 
     public Employee(String name, int department, int salary) {
@@ -17,12 +17,13 @@ public class Employee {
         employees.add(this);//?
         count++;
     }
+
     // Additional method to remove an employee from the list
     public static void removeEmployee(Employee employee) {
         employees.remove(employee);
     }
 
-    public static ArrayList<Employee> getEmployees() {//?
+    public static ArrayList<Employee> getEmployees() {
         return employees;
     }
 
