@@ -113,6 +113,41 @@ public class Main {
         return totalCost;
     }
 
+    //средняя ЗП по отделу
+    public static int getAverageSalaryCostByDepartment(ArrayList<Employee> employees, int department) {
+        int averageCost = 0;
+        int count = 0;
+        for (Employee o :
+                employees) {
+            if (o.getDepartment() == department) {
+                averageCost += o.getSalary();
+                count++;
+            }
+        }
+        return averageCost / count;
+    }
+
+    //индексация ЗП сотрудников одного отдела
+    public static void indexSalaryCostByDepartment(ArrayList<Employee> employees, int department, int percent) {
+        for (Employee o : employees) {
+            if (o.getDepartment() == department) {
+                int currentSalary = o.getSalary();
+                int indexSalary = currentSalary + (currentSalary / 100 * percent);
+                o.setSalary(indexSalary);
+            }
+        }
+    }
+
+    //напечатать всех сотрудников отдела - все данные, кроме отдела
+    public static void printEmployeesInDepartment(ArrayList<Employee> employees, int department) {
+        for (Employee o : employees) {
+            if (o.getDepartment() == department) {
+                System.out.println(o.getName() + " " + o.getSalary() + " " + o.getId() +
+                        "\n=======================================");
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
         Employee ivanov = new Employee("Иванов Иван Иванович", 1, 1000);
@@ -121,10 +156,15 @@ public class Main {
         Employee sidorov = new Employee("Сидоров Сидр Сидорович", 3, 125);
         Employee kuznetsov = new Employee("Кузнецов Илларион Феофилович", 4, 1500);
         Employee kovalev = new Employee("Ковалев Владимир Красносолнышко", 5, 1_000_000);
-        System.out.println(findMinSalaryByDepartment(Employee.getEmployees(), 1));
+      printEmployeesInDepartment(Employee.getEmployees(), 1);
+        /*  System.out.println(findMinSalaryByDepartment(Employee.getEmployees(), 1));
         System.out.println(findMaxSalaryByDepartment(Employee.getEmployees(), 1));
         System.out.println(getTotalSalaryCostByDepartment(Employee.getEmployees(), 1));
-      /*  printEmpl(Employee.getEmployees());
+        System.out.println(getAverageSalaryCostByDepartment(Employee.getEmployees(), 1));
+        indexSalaryCostByDepartment(Employee.getEmployees(), 1, 15);
+        System.out.println(getTotalSalaryCostByDepartment(Employee.getEmployees(), 1
+        ));
+        printEmpl(Employee.getEmployees());
         System.out.println("Сумма затрат на зарплату в месяц - " + sumSalary(Employee.getEmployees()) + '\u20AC' + "\n");
         System.out.println("Наименьшая ЗП у сотрудника - \n" + minSalary(Employee.getEmployees()) + "\n");
         System.out.println("Наибольшая ЗП у сотрудника - \n" + maxSalary(Employee.getEmployees()) + "\n");
