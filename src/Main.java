@@ -14,8 +14,7 @@ public class Main {
     //для вывода суммы зарплат всех сотрудников
     public static float sumSalary(Employee[] arr) {
         int sum = 0;
-        for (Employee a :
-                arr) {
+        for (Employee a : arr) {
             if (a != null) {
                 sum = sum + a.getSalary();
             }
@@ -58,8 +57,7 @@ public class Main {
     public static int averageSalary(Employee[] arr) {
         int sum = 0;
         int count = 0;
-        for (Employee a :
-                arr) {
+        for (Employee a : arr) {
             if (a != null) {
                 sum = sum + a.getSalary();
                 count++;
@@ -70,8 +68,7 @@ public class Main {
 
     //для вывода имен всех сотрудников
     public static void printNameOfEmployees(Employee[] arr) {
-        for (Employee o : arr
-        ) {
+        for (Employee o : arr) {
             if (o != null) {
                 System.out.println("ФИО сотрудника = " + o.getName());
             }
@@ -122,8 +119,7 @@ public class Main {
     //сумма затрат на ЗП по отделу
     public static int getTotalSalaryCostByDepartment(Employee[] arr, int department) {
         int totalCost = 0;
-        for (Employee o :
-                arr) {
+        for (Employee o : arr) {
             if (o != null) {
                 if (o.getDepartment() == department) {
                     totalCost += o.getSalary();
@@ -137,8 +133,7 @@ public class Main {
     public static int getAverageSalaryCostByDepartment(Employee[] arr, int department) {
         int averageCost = 0;
         int count = 0;
-        for (Employee o :
-                arr) {
+        for (Employee o : arr) {
             if (o != null) {
                 if (o.getDepartment() == department) {
                     averageCost += o.getSalary();
@@ -166,8 +161,7 @@ public class Main {
     public static void printEmployeesInDepartment(Employee[] employees, int department) {
         for (Employee o : employees) {
             if (o.getDepartment() == department) {
-                System.out.println(o.getName() + " " + o.getSalary() + " " + o.getId() +
-                        "\n=======================================");
+                System.out.println(o.getName() + " " + o.getSalary() + " " + o.getId() + "\n=======================================");
             }
         }
     }
