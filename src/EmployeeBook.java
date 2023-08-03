@@ -35,6 +35,7 @@ public class EmployeeBook {
         }
         System.out.println("Сумма зарплат всех сотрудников - " + sum + "\u20AC");
     }
+
     // для вывода сотрудника с минимальной ЗП
     public void minSalaryEmployee() {
         int index = 0;
@@ -47,8 +48,9 @@ public class EmployeeBook {
                 }
             }
         }
-        System.out.println("Сотрудник с МИН ЗП - "+employees[index]+"\n======================================");
+        System.out.println("Сотрудник с МИН ЗП - " + employees[index] + "\n======================================");
     }
+
     // для вывода сотрудника с максиимальной ЗП
     public void maxSalaryEmployee() {
         int ind = 0;
@@ -61,7 +63,22 @@ public class EmployeeBook {
                 }
             }
         }
-        System.out.println("Сотрудник с MAX ЗП - "+employees[ind]+"\n======================================");
+        System.out.println("Сотрудник с MAX ЗП - " + employees[ind] + "\n======================================");
+    }
+
+    //для вывода средней ЗП
+    public void averageSalary() {
+        double sum = 0;
+        int count = 0;
+        double averageSum = 0;
+        for (Employee a : employees) {
+            if (a != null) {
+                sum = sum + a.getSalary();
+                count++;
+            }
+        }
+        averageSum = sum / count;
+        System.out.println("Средняя ЗП - " + averageSum+"\n===================================");
     }
 }
 

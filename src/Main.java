@@ -4,21 +4,6 @@ public class Main {
 
 
 
-
-
-    //для вывода средней ЗП
-    public static int averageSalary(Employee[] arr) {
-        int sum = 0;
-        int count = 0;
-        for (Employee a : arr) {
-            if (a != null) {
-                sum = sum + a.getSalary();
-                count++;
-            }
-        }
-        return sum / count;
-    }
-
     //для вывода имен всех сотрудников
     public static void printNameOfEmployees(Employee[] arr) {
         for (Employee o : arr) {
@@ -156,6 +141,7 @@ public class Main {
         employeeBook.sumSalary();
         employeeBook.minSalaryEmployee();
         employeeBook.maxSalaryEmployee();
+        employeeBook.averageSalary();
         /*  indexSalaryByPercentage(employeesList, 20);*/
 
        /* printEmpl(employeesList);
