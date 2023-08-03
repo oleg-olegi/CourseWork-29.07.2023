@@ -2,47 +2,9 @@ import java.util.ArrayList;
 
 public class Main {
 
-    //для вывода суммы зарплат всех сотрудников
-    public static float sumSalary(Employee[] arr) {
-        int sum = 0;
-        for (Employee a : arr) {
-            if (a != null) {
-                sum = sum + a.getSalary();
-            }
-        }
-        return sum;
-    }
 
-    // для вывода сотрудника с минимальной ЗП
-    public static Employee minSalary(Employee[] arr) {
-        int index = 0;
-        int min = arr[0].getSalary();
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != null) {
-                if (min > arr[i].getSalary()) {
-                    min = arr[i].getSalary();
-                    index = i;
-                }
-            }
-        }
 
-        return arr[index];
-    }
 
-    // для вывода сотрудника с максиимальной ЗП
-    public static Employee maxSalary(Employee[] arr) {
-        int ind = 0;
-        int max = arr[0].getSalary();
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != null) {
-                if (max < arr[i].getSalary()) {
-                    max = arr[i].getSalary();
-                    ind = i;
-                }
-            }
-        }
-        return arr[ind];
-    }
 
     //для вывода средней ЗП
     public static int averageSalary(Employee[] arr) {
@@ -182,8 +144,6 @@ public class Main {
 
     public static void main(String[] args) {
         EmployeeBook employeeBook = new EmployeeBook(10);
-       /* Employee[] employeesList = new Employee[10];
-        int employeeCount = 0;*/
 
         employeeBook.addEmployee(new Employee("Иванов Иван Иванович", 1, 1000));
         employeeBook.addEmployee(new Employee("Туманов Алексей Сергеевич", 1, 200));
@@ -193,7 +153,10 @@ public class Main {
         employeeBook.addEmployee(new Employee("Ковалев Владимир Красносолнышко", 5, 1_000_000));
 
         employeeBook.printAllEmployees();
-      /*  indexSalaryByPercentage(employeesList, 20);*/
+        employeeBook.sumSalary();
+        employeeBook.minSalaryEmployee();
+        employeeBook.maxSalaryEmployee();
+        /*  indexSalaryByPercentage(employeesList, 20);*/
 
        /* printEmpl(employeesList);
         System.out.println(sumSalary(employeesList));
