@@ -166,6 +166,28 @@ public class Main {
         }
     }
 
+    // Получить в качестве параметра число и найти:
+//    1. Всех сотрудников с зарплатой меньше числа (вывести id, Ф. И. О. и зарплатой в консоль).
+    public static void employeesWithLessThenSalary(int paramNum, Employee[] employees) {
+        for (Employee o : employees) {
+            if (o != null) {
+                if (o.getSalary() < paramNum) {
+                    System.out.println("Сотрудник с ЗП меньше числа - ID " + o.getId() + " " + o.getName() + " " + o.getSalary());
+                }
+            }
+        }
+    }
+
+    //Всех сотрудников с зарплатой больше (или равно) числа (вывести id, Ф. И. О. с зарплатой в консоль).
+    public static void employeesMoreThanSalary(int paramNum, Employee[] employees) {
+        for (Employee o : employees) {
+            if (o != null) {
+                if (o.getSalary() >= paramNum) {
+                    System.out.println("Сотрудники с ЗП выше, чем число - ID " + o.getId() + " " + o.getName() + " " + o.getSalary());
+                }
+            }
+        }
+    }
 
     public static void main(String[] args) {
         Employee[] employeesList = new Employee[10];
@@ -180,11 +202,13 @@ public class Main {
 
         indexSalaryByPercentage(employeesList, 20);
 
-        printEmpl(employeesList);
+       /* printEmpl(employeesList);
         System.out.println(sumSalary(employeesList));
         System.out.println("minSalary(employeesList) = " + minSalary(employeesList));
         System.out.println("maxSalary(employeesList) = " + maxSalary(employeesList));
         printNameOfEmployees(employeesList);
-        System.out.println(findMinSalaryByDepartment(employeesList, 1));
+        System.out.println(findMinSalaryByDepartment(employeesList, 1));*/
+        employeesWithLessThenSalary(500, employeesList);
+
     }
 }
