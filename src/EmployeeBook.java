@@ -78,7 +78,137 @@ public class EmployeeBook {
             }
         }
         averageSum = sum / count;
-        System.out.println("Средняя ЗП - " + averageSum+"\n===================================");
+        System.out.println("Средняя ЗП - " + averageSum + "\n===================================");
     }
+
+    //для вывода имен всех сотрудников
+    public void printNameOfEmployees() {
+        for (Employee o : employees) {
+            if (o != null) {
+                System.out.println("ФИО сотрудника = " + o.getName());
+            }
+
+        }
+        System.out.println("===================================");
+    }
+
+    //для индексирования ЗП
+    public void indexSalaryByPercentage(int percent) {
+        for (Employee o : employees) {
+            if (o != null) {
+                int currentSalary = o.getSalary();
+                int indexSalary = (currentSalary + (currentSalary / 100 * percent));
+                o.setSalary(indexSalary);
+            }
+        }
+        System.out.println("====================================");
+    }
+
+    //нати сотрудника с мин ЗП по номеру отдела
+    public void findMinSalaryByDepartment(int numberOfDepartment) {
+        Employee employee = null;
+        int min = Integer.MAX_VALUE;
+        for (Employee a : employees)
+            if (a != null) {
+                if (a.getDepartment() == numberOfDepartment && a.getSalary() < min) {
+                    min = a.getSalary();
+                    employee = a;
+                }
+            }
+        System.out.println("Минимальная ЗП по отделу " + numberOfDepartment + "\n- " + employee);
+        System.out.println("====================================");
+    }
+
+    //нати сотрудника с max ЗП по номеру отдела
+    public void findMaxSalaryByDepartment(int numberOfDepartment) {
+        Employee employee = null;
+        int max = -1;
+        for (Employee o : employees) {
+            if (o != null) {
+                if (o.getDepartment() == numberOfDepartment && o.getSalary() > max) {
+                    max = o.getSalary();
+                    employee = o;
+                }
+            }
+        }
+        System.out.println("Максимальная ЗП по отделу " + numberOfDepartment + "\n- " + employee);
+        System.out.println("====================================");
+    }
+
+    //сумма затрат на ЗП по отделу
+    public void getTotalSalaryCostByDepartment(int department) {
+        int totalCost = 0;
+        for (Employee o : employees) {
+            if (o != null) {
+                if (o.getDepartment() == department) {
+                    totalCost += o.getSalary();
+                }
+            }
+        }
+        System.out.println("Суммарная ЗП по отделу " + department + " - " + totalCost);
+        System.out.println("====================================");
+    }
+
+    //средняя ЗП по отделу
+    public void getAverageSalaryCostByDepartment(int department) {
+        int averageCost = 0;
+        int count = 0;
+        for (Employee o : employees) {
+            if (o != null) {
+                if (o.getDepartment() == department) {
+                    averageCost += o.getSalary();
+                    count++;
+                }
+            }
+        }
+        averageCost = averageCost / count;
+        System.out.println("Средняя ЗП по отделу " + department + " - " + averageCost);
+    }
+
+    //индексация ЗП сотрудников одного отдела
+    public void indexSalaryCostByDepartment(int department, int percent) {
+        for (Employee o : employees) {
+            if (o != null) {
+                if (o.getDepartment() == department) {
+                    int currentSalary = o.getSalary();
+                    int indexSalary = currentSalary + (currentSalary / 100 * percent);
+                    o.setSalary(indexSalary);
+                }
+            }
+        }
+    }
+
+    //напечатать всех сотрудников отдела - все данные, кроме отдела
+    public void printEmployeesInDepartment(int department) {
+        for (Employee o : employees) {
+            if (o.getDepartment() == department) {
+                System.out.println(o.getName() + " " + o.getSalary() + " " + o.getId() + "\n=======================================");
+            }
+        }
+    }
+
+    // Получить в качестве параметра число и найти:
+    //Всех сотрудников с зарплатой меньше числа (вывести id, Ф. И. О. и зарплатой в консоль).
+    public void employeesWithLessThenSalary(int paramNum) {
+        for (Employee o : employees) {
+            if (o != null) {
+                if (o.getSalary() < paramNum) {
+                    System.out.println("Сотрудник с ЗП меньше числа - ID " + o.getId() + " " + o.getName() + " " + o.getSalary());
+                }
+            }
+        }
+    }
+
+    //Всех сотрудников с зарплатой больше (или равно) числа (вывести id, Ф. И. О. с зарплатой в консоль).
+    public void employeesMoreThanSalary(int paramNum) {
+        for (Employee o : employees) {
+            if (o != null) {
+                if (o.getSalary() >= paramNum) {
+                    System.out.println("Сотрудники с ЗП выше, чем число - ID " + o.getId() + " " + o.getName() + " " + o.getSalary());
+                }
+            }
+        }
+    }
+
 }
 
