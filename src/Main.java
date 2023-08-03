@@ -1,15 +1,6 @@
 import java.util.ArrayList;
 
 public class Main {
-    //для вывода списка всех сотрудников
-    public static void printEmpl(Employee[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != null) {
-                System.out.println(arr[i]);
-                System.out.println("=======================================");
-            }
-        }
-    }
 
     //для вывода суммы зарплат всех сотрудников
     public static float sumSalary(Employee[] arr) {
@@ -190,25 +181,27 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Employee[] employeesList = new Employee[10];
-        int employeeCount = 0;
+        EmployeeBook employeeBook = new EmployeeBook(10);
+       /* Employee[] employeesList = new Employee[10];
+        int employeeCount = 0;*/
 
-        employeesList[employeeCount++] = new Employee("Иванов Иван Иванович", 1, 1000);
-        employeesList[employeeCount++] = new Employee("Туманов Алексей Сергеевич", 1, 200);
-        employeesList[employeeCount++] = new Employee("Петров Петр Петрович", 2, 1200);
-        employeesList[employeeCount++] = new Employee("Сидоров Сидр Сидорович", 3, 125);
-        employeesList[employeeCount++] = new Employee("Кузнецов Илларион Феофилович", 4, 1500);
-        employeesList[employeeCount++] = new Employee("Ковалев Владимир Красносолнышко", 5, 1_000_000);
+        employeeBook.addEmployee(new Employee("Иванов Иван Иванович", 1, 1000));
+        employeeBook.addEmployee(new Employee("Туманов Алексей Сергеевич", 1, 200));
+        employeeBook.addEmployee(new Employee("Петров Петр Петрович", 2, 1200));
+        employeeBook.addEmployee(new Employee("Сидоров Сидр Сидорович", 3, 125));
+        employeeBook.addEmployee(new Employee("Кузнецов Илларион Феофилович", 4, 1500));
+        employeeBook.addEmployee(new Employee("Ковалев Владимир Красносолнышко", 5, 1_000_000));
 
-        indexSalaryByPercentage(employeesList, 20);
+        employeeBook.printAllEmployees();
+      /*  indexSalaryByPercentage(employeesList, 20);*/
 
        /* printEmpl(employeesList);
         System.out.println(sumSalary(employeesList));
         System.out.println("minSalary(employeesList) = " + minSalary(employeesList));
         System.out.println("maxSalary(employeesList) = " + maxSalary(employeesList));
         printNameOfEmployees(employeesList);
-        System.out.println(findMinSalaryByDepartment(employeesList, 1));*/
-        employeesWithLessThenSalary(500, employeesList);
+        System.out.println(findMinSalaryByDepartment(employeesList, 1));
+        employeesWithLessThenSalary(500, employeesList);*/
 
     }
 }
