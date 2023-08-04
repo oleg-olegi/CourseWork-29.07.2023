@@ -3,13 +3,6 @@ import java.util.ArrayList;
 public class Main {
 
 
-
-
-
-
-
-
-
     public static void main(String[] args) {
         EmployeeBook employeeBook = new EmployeeBook(10);
 
@@ -20,7 +13,13 @@ public class Main {
         employeeBook.addEmployee(new Employee("Кузнецов Илларион Феофилович", 4, 1500));
         employeeBook.addEmployee(new Employee("Ковалев Владимир Красносолнышко", 5, 1_000_000));
 
+        employeeBook.deleteEmployee("Туманов Алексей Сергеевич");
+        employeeBook.addNewEmployee(new Employee("Рембо Сильвестр Сталлонович", 1, 500));
+        employeeBook.printNameOfEmployees();
         employeeBook.printAllEmployees();
+        employeeBook.printAllDepartmentsAndNames();
+
+     /*   employeeBook.printAllEmployees();
         employeeBook.minSalaryEmployee();
         employeeBook.maxSalaryEmployee();
         employeeBook.averageSalary();
@@ -28,8 +27,6 @@ public class Main {
         employeeBook.sumSalary();
         employeeBook.indexSalaryByPercentage(25);
         employeeBook.sumSalary();
-        employeeBook.findMinSalaryByDepartment(1);
-
-
+        employeeBook.findMinSalaryByDepartment(1);*/
     }
 }

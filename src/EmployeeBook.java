@@ -210,5 +210,45 @@ public class EmployeeBook {
         }
     }
 
+    //добавляем нового сотрудника
+    public void addNewEmployee(Employee employee) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] == null) {
+                employees[i] = employee;
+                break;
+            }
+        }
+    }
+
+    //удаляем сотрудника
+    public void deleteEmployee(String name) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getName().equals(name)) {
+                employees[i] = null;
+                break;
+            }
+        }
+    }
+
+    //обновление даных о сотруднике
+    public void updateEmployee(String name, int salary, int department) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].equals(name)) {
+                employees[i].setSalary(salary);
+                employees[i].setDepartment(department);
+                break;
+            }
+        }
+    }
+
+    //напечатать список отделов и их сотрудников
+    public void printAllDepartmentsAndNames() {
+        for (Employee o :
+                employees) {
+            if (o != null) {
+                System.out.println("Отдел - " + o.getDepartment() + " ФИО " + o.getName());
+            }
+        }
+    }
 }
 
