@@ -1,19 +1,20 @@
 public class EmployeeBook {
     private Employee[] employees;
     private int employeeCount;
+    private final int idDepartment = 5;
 
     public EmployeeBook(int capacity) {
         employees = new Employee[capacity];
         employeeCount = 0;
     }
-
+/*
     //добавляем нового сотрдника в массив
     public void addEmployee(Employee employee) {
         if (employeeCount < employees.length) {
             employees[employeeCount] = employee;
             employeeCount++;
         }
-    }
+    }*/
 
     //для вывода списка всех сотрудников
     public void printAllEmployees() {
@@ -215,6 +216,7 @@ public class EmployeeBook {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
                 employees[i] = employee;
+                employeeCount++;
                 break;
             }
         }
@@ -225,6 +227,7 @@ public class EmployeeBook {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getName().equals(name)) {
                 employees[i] = null;
+                employeeCount--;
                 break;
             }
         }
@@ -243,10 +246,13 @@ public class EmployeeBook {
 
     //напечатать список отделов и их сотрудников
     public void printAllDepartmentsAndNames() {
-        for (Employee o :
-                employees) {
-            if (o != null) {
-                System.out.println("Отдел - " + o.getDepartment() + " ФИО " + o.getName());
+        for (int i = 1; i < idDepartment; i++) {
+            System.out.println("Отдел - " + i + " ");
+            for (Employee o :
+                    employees) {
+                if (o != null && o.getDepartment()==i) {
+                    System.out.println("ФИО " + o.getName());
+                }
             }
         }
     }
