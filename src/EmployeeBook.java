@@ -234,7 +234,7 @@ public class EmployeeBook {
 
     //напечатать список отделов и их сотрудников
     public void printAllDepartmentsAndNames() {
-        for (int i = 1; i < idDepartment; i++) {
+        for (int i = 1; i <= idDepartment; i++) {
             System.out.println("Отдел - " + i + " ");
             for (Employee o :
                     employees) {
